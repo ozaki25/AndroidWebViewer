@@ -1,7 +1,11 @@
-import React from 'react';
-import { SafeAreaView, WebView } from 'react-native';
+import React, { useEffect } from 'react';
+import { BackHandler, SafeAreaView, WebView } from 'react-native';
 
 function App() {
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => true);
+  }, []);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <WebView
